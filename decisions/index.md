@@ -12,15 +12,15 @@
 | [DEC-006](DEC-006-change-writing-topic.md) | 更改写作主题并清空工作区重新开始（US-005） | confirmed | 用户故事登记消息 |
 | [DEC-007](DEC-007-change-topic-refinements.md) | 初始状态定义、图表编号来源、流程编排与分支命名规范（US-003、US-005） | confirmed | 用户故事澄清消息 |
 | [DEC-008](DEC-008-output-version-format.md) | 论文输出版本格式规范 vX.Y-release / vX.Y-RC（US-006） | confirmed | 用户故事登记消息 |
-| [DEC-009](DEC-009-workspace-issues-directory.md) | 论文工作区遗留问题目录确认为 notes/issues/（US-001） | proposed | 本轮用户消息（用户故事差距分析） |
-| [DEC-010](DEC-010-writing-plan-structure.md) | 编写计划落盘 writing/plan/ 及固定四节结构（US-002） | proposed | 本轮用户消息（用户故事差距分析） |
-| [DEC-011](DEC-011-references-entry-structure.md) | 文献条目文件结构与核验状态分级（US-002） | proposed | 本轮用户消息（用户故事差距分析） |
-| [DEC-012](DEC-012-no-auto-web-search.md) | v0.1 不做自动联网检索，agent_retrieved 降级整理用户提供文本（US-002） | proposed | 本轮用户消息（用户故事差距分析） |
-| [DEC-013](DEC-013-formatting-guidelines-registry.md) | workspace.json 新增 formatting_guidelines 登记与 materials/guidelines/ 目录（US-004） | proposed | 本轮用户消息（用户故事差距分析） |
-| [DEC-014](DEC-014-guidelines-injection-to-tasks.md) | 规范向 PM 与 writer/reviewer 任务的三层传递机制（US-004） | proposed | 本轮用户消息（用户故事差距分析） |
-| [DEC-015](DEC-015-figure-table-index.md) | 图表索引文件 figure-table-index.md 与编号规则来源（US-003） | proposed | 本轮用户消息（用户故事差距分析） |
-| [DEC-016](DEC-016-reset-topic-command.md) | reset-topic 子命令与两阶段门禁（US-005） | proposed | 本轮用户消息（用户故事差距分析） |
-| [DEC-017](DEC-017-output-version-naming.md) | 输出版本目录命名规则 vX.Y-release / vX.Y-RC（US-006） | proposed | 本轮用户消息（用户故事差距分析） |
+| [DEC-009](DEC-009-workspace-issues-directory.md) | 论文工作区遗留问题目录确认为 notes/issues/（US-001） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-010](DEC-010-writing-plan-structure.md) | 编写计划落盘 writing/plan/ 及固定四节结构（US-002） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-011](DEC-011-references-entry-structure.md) | 文献条目文件结构与核验状态分级（US-002） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-012](DEC-012-no-auto-web-search.md) | v0.1 不做自动联网检索，agent_retrieved 降级整理用户提供文本（US-002） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-013](DEC-013-formatting-guidelines-registry.md) | workspace.json 新增 formatting_guidelines 登记与 materials/guidelines/ 目录（US-004） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-014](DEC-014-guidelines-injection-to-tasks.md) | 规范向 PM 与 writer/reviewer 任务的三层传递机制（US-004） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-015](DEC-015-figure-table-index.md) | 图表索引文件 figure-table-index.md 与编号规则来源（US-003） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-016](DEC-016-reset-topic-command.md) | reset-topic 子命令与两阶段门禁（US-005） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-017](DEC-017-output-version-naming.md) | 输出版本目录命名规则 vX.Y-release / vX.Y-RC（US-006） | confirmed | 本轮用户消息（用户故事差距分析） |
 
 前期 D01–D04 原话与决策保留在 [DESIGN-DECISIONS.md](../DESIGN-DECISIONS.md)，作为历史依据，未在本轮重新确认。
 
@@ -37,21 +37,30 @@
 | DEC-006-change-writing-topic.md | 2026-09-15T06:57:23+00:00 | `1aa96513aadb` |
 | DEC-007-change-topic-refinements.md | 2026-09-15T07:17:45+00:00 | `d1045323386d` |
 | DEC-008-output-version-format.md | 2026-09-15T07:17:45+00:00 | `481862280f03` |
-| DEC-009-workspace-issues-directory.md | 2026-09-15T08:56:12+00:00 | `07b3a8c74210` |
-| DEC-010-writing-plan-structure.md | 2026-09-15T08:56:12+00:00 | `4669a1a34296` |
-| DEC-011-references-entry-structure.md | 2026-09-15T08:56:12+00:00 | `e12bd42e407e` |
-| DEC-012-no-auto-web-search.md | 2026-09-15T08:56:12+00:00 | `0a5399b6b10d` |
-| DEC-013-formatting-guidelines-registry.md | 2026-09-15T08:56:12+00:00 | `f54e3cc478fd` |
-| DEC-014-guidelines-injection-to-tasks.md | 2026-09-15T08:56:12+00:00 | `bdceb1dbcd49` |
-| DEC-015-figure-table-index.md | 2026-09-15T08:56:12+00:00 | `10a80fff257f` |
-| DEC-016-reset-topic-command.md | 2026-09-15T09:24:59+00:00 | `0c9cfdb0b17e` |
-| DEC-017-output-version-naming.md | 2026-09-15T08:56:12+00:00 | `36e74352f973` |
+| DEC-009-workspace-issues-directory.md | 2026-09-15T09:50:30+00:00 | `1efd35435c7b` |
+| DEC-010-writing-plan-structure.md | 2026-09-15T09:50:30+00:00 | `6c0947b32302` |
+| DEC-011-references-entry-structure.md | 2026-09-15T09:50:30+00:00 | `01404d480415` |
+| DEC-012-no-auto-web-search.md | 2026-09-15T09:50:30+00:00 | `766a3f7bde32` |
+| DEC-013-formatting-guidelines-registry.md | 2026-09-15T09:50:30+00:00 | `2f49f9ae90ff` |
+| DEC-014-guidelines-injection-to-tasks.md | 2026-09-15T09:50:30+00:00 | `4ccb44e5e945` |
+| DEC-015-figure-table-index.md | 2026-09-15T09:50:30+00:00 | `df6ba7fd725c` |
+| DEC-016-reset-topic-command.md | 2026-09-15T09:50:30+00:00 | `9c61885e672a` |
+| DEC-017-output-version-naming.md | 2026-09-15T09:50:30+00:00 | `6872f2f71e02` |
 
 ### 子目录
 
 
 
 ### 变更时间线
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-009-workspace-issues-directory.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-010-writing-plan-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-011-references-entry-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-012-no-auto-web-search.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-013-formatting-guidelines-registry.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-014-guidelines-injection-to-tasks.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-015-figure-table-index.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-016-reset-topic-command.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-017-output-version-naming.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
 - 2026-09-15T09:24:59+00:00 · 修改 `decisions/DEC-016-reset-topic-command.md` · 修复 skill/README/DEC 文档与审查发现的一致性问题
 - 2026-09-15T08:56:12+00:00 · 首次纳入索引 `decisions/DEC-009-workspace-issues-directory.md` · 登记 DEC-009~DEC-017：US-001~US-006 差距分析产生的新设计决策
 - 2026-09-15T08:56:12+00:00 · 首次纳入索引 `decisions/DEC-010-writing-plan-structure.md` · 登记 DEC-009~DEC-017：US-001~US-006 差距分析产生的新设计决策

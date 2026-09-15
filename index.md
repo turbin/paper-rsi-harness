@@ -39,6 +39,15 @@
 - [user-stories](user-stories/index.md)
 
 ### 变更时间线
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-009-workspace-issues-directory.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-010-writing-plan-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-011-references-entry-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-012-no-auto-web-search.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-013-formatting-guidelines-registry.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-014-guidelines-injection-to-tasks.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-015-figure-table-index.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-016-reset-topic-command.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
+- 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-017-output-version-naming.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
 - 2026-09-15T09:39:40+00:00 · 修改 `README.md` · 修复 --guideline 文档示例并完成功能实现与两轮审阅收尾
 - 2026-09-15T09:39:40+00:00 · 修改 `skills/paper-spec-socratic/SKILL.md` · 修复 --guideline 文档示例并完成功能实现与两轮审阅收尾
 - 2026-09-15T09:31:34+00:00 · 修改 `paper.py` · 修复 reset-topic 清空边界、登记链路与健壮性审查问题
