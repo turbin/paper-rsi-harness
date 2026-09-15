@@ -8,19 +8,27 @@
 
 ## 1. 快速安装
 
+### 源码工程管理
+
+本源码仓库的问题见 [issues/index.md](issues/index.md)，用户设计决策见 [decisions/index.md](decisions/index.md)，协作约定见 [AGENTS.md](AGENTS.md)。每次修改后运行 `python3 scripts/update_indexes.py --reason "本轮变更原因"`，更新各受管理目录的文件快照与变更时间线。根索引保留全工程事件；Git 忽略的试用目录、缓存和内部运行态不纳入扫描。
+
+### 安装论文工作区
+
 先安装 Python 3.10+ 和 Git。解压本工具包后运行：
 
 macOS：
 
 ```bash
-bash install.sh "$HOME/Documents/paper-rsi-harness"
+bash setup.sh "$HOME/Documents/paper-rsi-harness"
 ```
 
 Windows PowerShell：
 
 ```powershell
-.\install.ps1 -Target "$env:USERPROFILE\Documents\paper-rsi-harness"
+.\setup.ps1 -Target "$env:USERPROFILE\Documents\paper-rsi-harness"
 ```
+
+setup 脚本一次完成两件事：初始化论文工作区，并把 `paper-spec-socratic` skill 安装到本机检测到的所有 agent（kimi、claude、codex、gemini 的 skill 目录）。可选参数 bash 写法为 `--list`（只扫描不安装）、`--agent <名>`（只装到指定 agent）、`--no-skill`（只建工作区）、`--force`（覆盖已存在的 skill）；PowerShell 写法分别为 `-List`、`-Agent <名>`、`-NoSkill`、`-Force`。
 
 若组织策略禁止 PowerShell 脚本，不修改执行策略，可直接运行同一核心程序：
 
@@ -56,10 +64,14 @@ Git 不是备份；是否启用远程备份由用户另行决定。本交付不�
 | `materials/data/` | 原始问卷、统计数据 | 用户添加，保留来源 |
 | `materials/company/` | 企业案例资料 | 先脱敏，再显式授权使用 |
 | `materials/private/` | 私密材料 | 不自动输入模型，Git 忽略 |
+| `materials/guidelines/` | 论文规范文件原件 | 用户添加，Agent 不修改 |
 | `notes/` | 读书笔记、用户原话摘录、已核对文本 | 人与 Agent 维护 |
+| `notes/issues/` | 遗留问题登记（ISS 文件与索引） | Skill 写入，用户回答后关闭 |
 | `decisions/` | 原话依据 + 决议 JSON | 新建记录，旧记录保留 |
 | `tasks/` | 每次运行的计划与状态 JSON | 控制器统一写入 |
 | `writing/outline/` | 用户确认的大纲 | 显式授权后修改 |
+| `writing/spec/` | 论文编写 spec（paper-spec-socratic 产出） | 草案逐节经用户确认 |
+| `writing/plan/` | 论文编写计划 | 草案逐节经用户确认 |
 | `writing/chapters/` | 正式工作章节 | 显式授权后修改 |
 | `writing/drafts/` | 人工交互模式的草稿 | 不覆盖确认稿 |
 | `references/` | BibTeX 与引用核对 | 核验后登记 |
@@ -71,7 +83,7 @@ Git 不是备份；是否启用远程备份由用户另行决定。本交付不�
 | `.paper-ai/runs/` | 请求、模型响应、草稿、审阅和汇总 | 每次生成独立版本 |
 | `.paper-ai/.runtime/` | 控制器锁、哈希缓存 | 自动维护，Git 忽略 |
 
-根目录还有 `AGENTS.md`、`CLAUDE.md`、`workspace.json`。内部目录 `.git/`、`.runtime/`、缓存和依赖目录不建立 index.md；符号链接不跟随。
+根目录还有 `AGENTS.md`、`CLAUDE.md`、`workspace.json`。`workspace.json` 除 `default_backend`/`role_backends` 外还登记论文主题（`topic`）、学校要求（`school_requirements`）、AI 使用规范（`ai_disclosure_policy`）与 `formatting_guidelines`——后者为数组，元素为 `{file, title, version_or_date, locator}`，`file` 为工作区内相对路径（通常指向 `materials/guidelines/`），`locator` 记录章节/页码/条款定位；登记与变更走 `paper.py decision` 保证可追溯。内部目录 `.git/`、`.runtime/`、缓存和依赖目录不建立 index.md；符号链接不跟随。
 没有 conversations/ 全量聊天库：原话和出处嵌入决议即可，符合本次确认。
 
 ## 3. 为什么参考这些开源项目
@@ -240,6 +252,8 @@ python3 .paper-ai/paper.py index --root . --reason "补充导师对样本范围�
 对于企业敏感资料，应使用另行验证的隔离环境或获批准的本地模型。不要绕过权限确认，也不要为“自动化”开启全权限。
 Kimi 官方文档提示 `--print` 隐式启用 `--afk`，会自动批准工具，因此本版没有将裸 `kimi --print` 配成可运行默认命令。
 
+v0.1 不做自动联网检索：不新增检索命令、不调用外部搜索 API。references 条目中的 `agent_retrieved` 来源类型降级为「整理用户提供的检索结果文本」，须在核验依据中记录出处文本位置，不得代替联网检索。
+
 ## 9. 启动 PM
 
 先编辑 workspace.json 的论文主题、学校要求和 AI 使用规范。创建 `notes/brief.md`，写明本轮管理问题、目标产物和现有证据。
@@ -258,7 +272,7 @@ python3 .paper-ai/paper.py run --root . --brief notes/brief.md --input notes/lit
 
 自动传入内容还包括生效的 confirmed 决议（含用户原话）、角色规则以及前置任务产物；这也是对外模型数据范围的一部分。
 目前只支持明确指定 UTF-8 的 Markdown/TXT/CSV/JSON/BibTeX 文件。PDF/Word/Excel 不自动解析，须先转成已核对的文本并保留页码、表格口径和出处。
-没有自动互联网检索、统计代码执行或论文下载；Researcher/Analyst 在本原型中处理已经提供的文本证据。缺少资料就提问，不“补造”结果。
+没有自动互联网检索、统计代码执行或论文下载；Researcher/Analyst 在本原型中处理已经提供的文本证据，文献整理中的 agent_retrieved 同样仅限用户提供的检索结果文本。缺少资料就提问，不“补造”结果。
 
 产物保存在 `.paper-ai/runs/RUN-.../T01-1/draft.md` 等版本目录中；状态在 `tasks/RUN-....json`。
 默认最多 8 个任务，每任务最多返工 1 次，每次 CLI 调用超时 300 秒。正常全量上限为 34 次调用：规划1 + 8×(执行2+审阅2) + 汇总1；这不是费用硬上限。
@@ -266,7 +280,31 @@ API 拒绝、权限失败、输出不合规、超预算等情况立即记录 blo
 暂停后用户补充原话/材料，重新运行会创建新的 RUN；v0.1 没有断点自动恢复，也不重复修改旧 RUN。
 最后的 awaiting_user_acceptance 表示机器审阅完成待用户验收，不意味着论文通过、可直接提交或统计结果已复算。
 
-## 10. 已做验证与未做验证
+## 10. 更改写作主题与输出版本
+
+想改写作主题时，先备份确认、再清空重置，两阶段门禁：
+
+```bash
+py -3 .paper-ai/paper.py reset-topic --topic "<新主题摘要>"              # 仅本地备份提交并打印待执行计划
+py -3 .paper-ai/paper.py reset-topic --topic "<新主题摘要>" --confirm   # 确认后建 feature-<slug> 分支并重置工作区
+```
+
+- 只本地提交，不 push、不配置 remote；仓库尚无提交时以首次提交作为备份点。
+- 只按上一版本迭代、不清空时用 `--branch-only` 只建分支；中文摘要需显式 `--allow-unicode-branch`；目标分支已存在则拒绝执行。
+- 重置仅回空 workspace.json 的 topic/school_requirements/ai_disclosure_policy/formatting_guidelines，保留后端配置，不触碰 materials/、.gitignore、AGENTS.md/CLAUDE.md 的用户合并内容。
+- 清空后请对 Agent 说「帮我梳理论文主题」，重新启动 paper-spec-socratic 流程。
+
+输出版本命名：版本标记放在 `output/` 内的目录名，命名应匹配 `output/vX.Y-release/`（释放版本）与 `output/vX.Y-RC/`（候选版本），即目录名符合 `^v\d+\.\d+-(release|RC)$`；index 时对不规范版本名给出警告（warning），不拒绝扫描。目录内放实际产物与版本说明。版本号不写入 workspace.json（其 version 字段是工具版本）；与 feature- 分支命名相互独立，新主题版本从 v0.1-RC 起重新计数。
+
+确认登记论文规范时用 decision 的 `--guideline` 参数一步完成留痕与写入：
+
+```bash
+python3 .paper-ai/paper.py decision --root . --subject formatting-guidelines --guideline file=materials/guidelines/thesis-guide.md,title=硕士学位论文格式规范,version=2026版,locator=第3章 --text "<用户确认原话>" --evidence notes/user-quote.txt --source-ref "<用户会话出处>" --confirm
+```
+
+Windows 将 `python3` 换成 `py -3`；去掉 `--confirm` 则只留 proposed 决议，不写入 workspace.json。
+
+## 11. 已做验证与未做验证
 
 运行测试：
 
@@ -280,7 +318,7 @@ mock_backend.py 仅为测试夹具，不是 AI，不会联网，不用于生成�
 未完成：Windows/macOS 原生系统验证，四种产品真实账号/CLI 端到端测试，MBA 内容质量评测，CLI 进程树超时清理和强隔离安全评审。请先用非敏感样例验证本机后端再正式使用。
 本工具不会读取本环境凭据来替你测试，也没有在你的电脑上执行安装。
 
-## 11. 官方参考
+## 12. 官方参考
 
 - [CrewAI：角色协作与流程](https://github.com/crewAIInc/crewAI)
 - [MetaGPT：角色与 SOP](https://github.com/FoundationAgents/MetaGPT)

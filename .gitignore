@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 .paper-ai/.runtime/
+user-test/
+.project-runtime/
