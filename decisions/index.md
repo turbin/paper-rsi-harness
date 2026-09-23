@@ -46,12 +46,14 @@
 | DEC-015-figure-table-index.md | 2026-09-15T09:50:30+00:00 | `df6ba7fd725c` |
 | DEC-016-reset-topic-command.md | 2026-09-15T09:50:30+00:00 | `9c61885e672a` |
 | DEC-017-output-version-naming.md | 2026-09-15T09:50:30+00:00 | `6872f2f71e02` |
+| DEC-018-integrate-zvec.md | 2026-09-23T10:21:54+00:00 | `2bfaf5eeeb1e` |
 
 ### 子目录
 
 
 
 ### 变更时间线
+- 2026-09-23T10:21:54+00:00 · 首次纳入索引 `decisions/DEC-018-integrate-zvec.md` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
 - 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-009-workspace-issues-directory.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
 - 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-010-writing-plan-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
 - 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-011-references-entry-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed

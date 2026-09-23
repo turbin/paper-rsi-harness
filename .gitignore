@@ -3,3 +3,5 @@ __pycache__/
 .paper-ai/.runtime/
 user-test/
 .project-runtime/
+vendor/
+graphify-out/

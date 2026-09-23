@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""MBA paper workspace 0.1: standard-library-only scaffolding and serial PM runner."""
+"""MBA paper workspace 0.1: stdlib scaffolding with optional zvec fuzzy matching (vendor/) and serial PM runner."""
 import argparse
 import contextlib
 import datetime as dt
+import difflib
 import hashlib
 import json
 import os
@@ -276,7 +277,7 @@ def initialize(root):
         raise ValueError('请先安装 Git；安装器不自动下载或修改系统配置')
     root.mkdir(parents=True, exist_ok=True)
     repo = git(root, 'rev-parse', '--show-toplevel', check=False)
-    if repo.returncode == 0 and Path(repo.stdout.strip()).resolve() != root:
+    if repo.returncode == 0 and Path(repo.stdout.strip()).resolve() != root.resolve():
         raise ValueError('目标位于其他 Git 仓库内，请改选仓库根目录或独立目录，避免嵌套仓库')
     for d in DIRS:
         safe(root, d)
@@ -721,7 +722,81 @@ def run(root, args):
         index(root, 'PM执行 ' + runid, 'controller')
         print(dump({'run': runid, 'status': state['status'], 'record': str(taskpath)}))
 
+COMMANDS = ('init', 'index', 'decision', 'run', 'reset-topic')
+VENDOR_DIR = Path(__file__).resolve().parent / 'vendor'
+FUZZY_DIM = 256
+# 按后端标定的建议阈值（2026-09-23 实测：zvec 真实错字 0.33+ / 无关 0；difflib 真实错字 0.75+ / 无关 ≤0.14）。
+FUZZY_SUGGEST_MIN = {'zvec': 0.15, 'difflib': 0.4}
+
+def zvec_available():
+    """zvec 是可选依赖：setup 会安装到 paper.py 同级 vendor/ 并注入 sys.path；不可用时模糊匹配降级为 difflib。"""
+    if VENDOR_DIR.is_dir() and str(VENDOR_DIR) not in sys.path:
+        sys.path.insert(0, str(VENDOR_DIR))
+    try:
+        import zvec  # noqa: F401
+        return True
+    except Exception:
+        return False
+
+def _ngram_vector(text, dim=FUZZY_DIM):
+    """确定性字符 bigram 哈希向量（L2 归一化），无需下载模型，离线可用。"""
+    vec = [0.0] * dim
+    s = text.lower()
+    grams = [s[i:i+2] for i in range(len(s) - 1)] or ([s] if s else [' '])
+    for g in grams:
+        digest = hashlib.md5(g.encode('utf-8')).digest()
+        vec[int.from_bytes(digest[:4], 'little') % dim] += 1.0
+    norm = sum(v * v for v in vec) ** 0.5 or 1.0
+    return [v / norm for v in vec]
+
+def _fuzzy_rank_zvec(query, candidates):
+    import zvec
+    with tempfile.TemporaryDirectory(prefix='paper-fuzzy-') as tmp:
+        schema = zvec.CollectionSchema(
+            name='fuzzy',
+            vectors=zvec.VectorSchema('ngram', zvec.DataType.VECTOR_FP32, FUZZY_DIM))
+        collection = zvec.create_and_open(path=str(Path(tmp) / 'fuzzy'), schema=schema)
+        try:
+            collection.insert([zvec.Doc(id=str(i), vectors={'ngram': _ngram_vector(c)})
+                               for i, c in enumerate(candidates)])
+            results = collection.query(
+                zvec.Query(field_name='ngram', vector=_ngram_vector(query)),
+                topk=len(candidates))
+        finally:
+            # Windows 下不关闭集合会因文件锁导致临时目录清理失败（WinError 32）。
+            close = getattr(collection, 'close', None)
+            if callable(close):
+                close()
+    return [(candidates[int(r.id)], float(r.score)) for r in results]
+
+def _fuzzy_rank_difflib(query, candidates):
+    scored = [(c, difflib.SequenceMatcher(None, query.lower(), c.lower()).ratio())
+              for c in candidates]
+    return sorted(scored, key=lambda item: -item[1])
+
+def fuzzy_rank(query, candidates, backend=None):
+    """模糊匹配：返回 [(候选, 分数)] 按分数降序。zvec 可用时用向量相似度，否则或失败时降级 difflib。"""
+    cands = [str(c) for c in candidates]
+    if not cands:
+        return []
+    use_zvec = backend == 'zvec' or (backend is None and zvec_available())
+    if use_zvec:
+        try:
+            return _fuzzy_rank_zvec(query, cands)
+        except Exception:
+            pass  # zvec 查询失败（API 漂移/ABI 不匹配等）：降级 difflib；模糊匹配仅用于建议而非校验
+    return _fuzzy_rank_difflib(query, cands)
+
 def main():
+    argv = sys.argv[1:]
+    if argv and not argv[0].startswith('-') and argv[0] not in COMMANDS:
+        backend = 'zvec' if zvec_available() else 'difflib'
+        ranked = fuzzy_rank(argv[0], list(COMMANDS), backend=backend)
+        hint = ''
+        if ranked and ranked[0][1] >= FUZZY_SUGGEST_MIN[backend]:
+            hint = '；是否想输入 "' + ranked[0][0] + '"？'
+        print('错误: 未知命令 ' + argv[0] + hint, file=sys.stderr)
+        return 2
     parser = argparse.ArgumentParser(description='MBA论文目录初始化与PM串行自动协调原型')
     sub = parser.add_subparsers(dest='command', required=True)
     initp = sub.add_parser('init')

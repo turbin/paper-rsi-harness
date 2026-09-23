@@ -461,6 +461,52 @@ class WorkspaceTests(unittest.TestCase):
         self.assertIn('release-notes', err)
         self.assertNotIn('v1.0-release', err)
 
+    def test_fuzzy_rank_typo_orders_target_first(self):
+        commands = ['init', 'index', 'decision', 'run', 'reset-topic']
+        ranked = paper.fuzzy_rank('inti', commands, backend='difflib')
+        self.assertEqual(ranked[0][0], 'init')
+        self.assertGreater(ranked[0][1], 0)
+        self.assertEqual({c for c, _ in ranked}, set(commands))
+        self.assertEqual([s for _, s in ranked], sorted((s for _, s in ranked), reverse=True))
+
+    def test_fuzzy_rank_empty_candidates(self):
+        self.assertEqual(paper.fuzzy_rank('init', [], backend='difflib'), [])
+
+    def test_fuzzy_rank_auto_backend_degrades_without_zvec(self):
+        ranked = paper.fuzzy_rank('reset-toppic', ['reset-topic', 'init', 'index'])
+        self.assertEqual(ranked[0][0], 'reset-topic')
+
+    def test_zvec_available_is_bool(self):
+        self.assertIsInstance(paper.zvec_available(), bool)
+
+    def test_fuzzy_rank_zvec_backend(self):
+        if not paper.zvec_available():
+            self.skipTest('zvec 未安装（vendor/ 缺失），跳过后端专测')
+        ranked = paper.fuzzy_rank('inti', ['init', 'index', 'run', 'reset-topic'], backend='zvec')
+        self.assertEqual(ranked[0][0], 'init')
+        self.assertGreater(ranked[0][1], 0)
+
+    def test_fuzzy_rank_zvec_backend_not_silent_difflib_fallback(self):
+        if not paper.zvec_available():
+            self.skipTest('zvec 未安装（vendor/ 缺失），跳过后端专测')
+        with patch.object(paper, '_fuzzy_rank_difflib',
+                          side_effect=AssertionError('zvec 后端不应静默降级到 difflib')):
+            ranked = paper.fuzzy_rank('inti', ['init', 'index', 'run'], backend='zvec')
+        self.assertEqual(ranked[0][0], 'init')
+        self.assertGreater(ranked[0][1], 0)
+
+    def test_unknown_command_fuzzy_suggestion(self):
+        err = io.StringIO()
+        with patch.object(sys, 'argv', ['paper.py', 'inti']), contextlib.redirect_stderr(err):
+            code = paper.main()
+        self.assertEqual(code, 2)
+        self.assertIn('init', err.getvalue())
+        err = io.StringIO()
+        with patch.object(sys, 'argv', ['paper.py', 'zzzz-banana']), contextlib.redirect_stderr(err):
+            code = paper.main()
+        self.assertEqual(code, 2)
+        self.assertNotIn('是否想', err.getvalue())
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

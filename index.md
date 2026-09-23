@@ -19,16 +19,17 @@
 
 | 文件 | 变更观察时间（UTC） | SHA-256 |
 |---|---|---|
-| .gitignore | 2026-09-15T04:11:09+00:00 | `b75c32e9ec84` |
+| .DS_Store | 2026-09-23T10:21:54+00:00 | `75106c268d9e` |
+| .gitignore | 2026-09-23T10:21:54+00:00 | `725b4eb78097` |
 | AGENTS.md | 2026-09-15T04:11:09+00:00 | `8c2f1b0f4063` |
 | DESIGN-DECISIONS.md | 2026-09-15T04:11:09+00:00 | `e077e82068a7` |
-| README.md | 2026-09-15T09:39:40+00:00 | `362dd8c8cf91` |
+| README.md | 2026-09-23T10:21:54+00:00 | `074a375cb715` |
 | VERIFICATION.md | 2026-09-15T04:11:09+00:00 | `13d468e5cf05` |
 | mock_backend.py | 2026-09-15T04:11:09+00:00 | `f58475021f21` |
-| paper.py | 2026-09-15T09:31:34+00:00 | `7cc16b996e63` |
-| setup.ps1 | 2026-09-15T04:11:09+00:00 | `10cac29cf5b5` |
-| setup.sh | 2026-09-15T04:11:09+00:00 | `2ded4eb6bac5` |
-| test_paper.py | 2026-09-15T09:31:34+00:00 | `1a4509608e5f` |
+| paper.py | 2026-09-23T10:21:54+00:00 | `da1d29c2603e` |
+| setup.ps1 | 2026-09-23T10:21:54+00:00 | `b2d436d48ffc` |
+| setup.sh | 2026-09-23T10:41:28+00:00 | `69c6ee6962c6` |
+| test_paper.py | 2026-09-23T10:21:54+00:00 | `1ac552cb0cb3` |
 
 ### 子目录
 
@@ -39,6 +40,20 @@
 - [user-stories](user-stories/index.md)
 
 ### 变更时间线
+- 2026-09-23T10:41:28+00:00 · 修改 `issues/ISS-001-macos-bash.md` · 修复 ISS-001 bash3.2 兼容并在真 bash 3.2.0 上完成验收
+- 2026-09-23T10:41:28+00:00 · 修改 `issues/ISS-005-zvec-fuzzy-matching.md` · 修复 ISS-001 bash3.2 兼容并在真 bash 3.2.0 上完成验收
+- 2026-09-23T10:41:28+00:00 · 修改 `setup.sh` · 修复 ISS-001 bash3.2 兼容并在真 bash 3.2.0 上完成验收
+- 2026-09-23T10:31:43+00:00 · 修改 `issues/ISS-005-zvec-fuzzy-matching.md` · ISS-005 补充 Linux(WSL) 端到端验证与 macOS 跨平台边界说明
+- 2026-09-23T10:21:54+00:00 · 首次纳入索引 `.DS_Store` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 修改 `.gitignore` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 修改 `README.md` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 首次纳入索引 `decisions/DEC-018-integrate-zvec.md` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 修改 `issues/ISS-002-path-normalization.md` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 首次纳入索引 `issues/ISS-005-zvec-fuzzy-matching.md` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 修改 `paper.py` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 修改 `setup.ps1` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 修改 `setup.sh` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
+- 2026-09-23T10:21:54+00:00 · 修改 `test_paper.py` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
 - 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-009-workspace-issues-directory.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
 - 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-010-writing-plan-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
 - 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-011-references-entry-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed

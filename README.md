@@ -4,7 +4,7 @@
 
 这是可运行的轻量原型，不是论文网站、数据库系统或全自动代写服务。
 交付包含：跨平台初始化器、每目录索引、原话与决议记录、六个 MBA Agent profile、串行 PM 调度器和离线自动化测试。
-只依赖 Python 3.10+、Git，以及你自行安装登录的 Agent CLI。初始化不联网、不安装模型、不调用付费服务。
+只依赖 Python 3.10+、Git，以及你自行安装登录的 Agent CLI。初始化会尝试联网用 pip 安装可选依赖 zvec（模糊匹配用，装入工具包同级 `vendor/`；失败仅告警并降级为标准库 difflib，不阻断初始化，见 [DEC-018](decisions/DEC-018-integrate-zvec.md)）；除此之外初始化不安装模型、不调用付费服务。
 
 ## 1. 快速安装
 
@@ -28,7 +28,7 @@ Windows PowerShell：
 .\setup.ps1 -Target "$env:USERPROFILE\Documents\paper-rsi-harness"
 ```
 
-setup 脚本一次完成两件事：初始化论文工作区，并把 `paper-spec-socratic` skill 安装到本机检测到的所有 agent（kimi、claude、codex、gemini 的 skill 目录）。可选参数 bash 写法为 `--list`（只扫描不安装）、`--agent <名>`（只装到指定 agent）、`--no-skill`（只建工作区）、`--force`（覆盖已存在的 skill）；PowerShell 写法分别为 `-List`、`-Agent <名>`、`-NoSkill`、`-Force`。
+setup 脚本一次完成三件事：初始化论文工作区；把 `paper-spec-socratic` skill 安装到本机检测到的所有 agent（kimi、claude、codex、gemini 的 skill 目录）；把可选依赖 [zvec](https://github.com/alibaba/zvec) 自动安装到工具包同级 `vendor/`（已安装则跳过，失败仅告警），供 `paper.py` 的模糊匹配使用——未知命令会给出最近建议，如 `错误: 未知命令 inti；是否想输入 "init"？`，zvec 不可用时自动降级标准库 difflib。可选参数 bash 写法为 `--list`（只扫描不安装）、`--agent <名>`（只装到指定 agent）、`--no-skill`（只建工作区）、`--force`（覆盖已存在的 skill）；PowerShell 写法分别为 `-List`、`-Agent <名>`、`-NoSkill`、`-Force`。
 
 若组织策略禁止 PowerShell 脚本，不修改执行策略，可直接运行同一核心程序：
 
@@ -312,11 +312,12 @@ Windows 将 `python3` 换成 `py -3`；去掉 `--confirm` 则只留 proposed 决
 python3 -m unittest -v test_paper.py
 ```
 
-已在当前 Linux 环境运行自动化测试，覆盖初始化、Git、重复安装保留内容、索引稳定性及删除、路径越界、锁、决议冲突与环路、任务依赖校验、禁用后端、上下文预算、PM提问暂停、审阅返工和真实子进程的离线模拟链路。
+已在 Linux 与 Windows（py -3，Python 3.14）环境运行自动化测试，覆盖初始化、Git、重复安装保留内容、索引稳定性及删除、路径越界、锁、决议冲突与环路、任务依赖校验、禁用后端、上下文预算、PM提问暂停、审阅返工、真实子进程的离线模拟链路，以及模糊匹配（zvec 后端真实执行、difflib 降级、CLI 未知命令建议与无关输入不建议）。
 mock_backend.py 仅为测试夹具，不是 AI，不会联网，不用于生成论文；不安装到用户论文目录。
+2026-09-23 已在 Windows 实测 `setup.sh` 与 `setup.ps1` 的工作区初始化及 zvec 自动安装/跳过分支（`setup.ps1` 同轮补了 UTF-8 BOM 以兼容 Windows PowerShell 5.1）。
 
-未完成：Windows/macOS 原生系统验证，四种产品真实账号/CLI 端到端测试，MBA 内容质量评测，CLI 进程树超时清理和强隔离安全评审。请先用非敏感样例验证本机后端再正式使用。
-本工具不会读取本环境凭据来替你测试，也没有在你的电脑上执行安装。
+未完成：macOS 原生系统验证，四种产品真实账号/CLI 端到端测试，MBA 内容质量评测，CLI 进程树超时清理和强隔离安全评审。请先用非敏感样例验证本机后端再正式使用。
+本工具不会读取本环境凭据来替你测试；除 setup 脚本明确声明的 skill 复制、`vendor/` 依赖安装与工作区初始化外，不在你的电脑上执行其他安装。
 
 ## 12. 官方参考
 

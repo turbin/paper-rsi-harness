@@ -1,4 +1,4 @@
-# 一体化安装：初始化论文工作区 + 安装 paper-spec-socratic skill 到本机检测到的 agent。
+﻿# 一体化安装：初始化论文工作区 + 安装 paper-spec-socratic skill 到本机检测到的 agent。
 # 用法：
 #   .\setup.ps1 -Target "$env:USERPROFILE\Documents\paper-rsi-harness"
 #   .\setup.ps1 -List                              # 只显示检测到的 agent，不安装
@@ -50,6 +50,24 @@ if ($paperPython.Name -eq 'py') {
     & $paperPython.Source (Join-Path $PSScriptRoot 'paper.py') init --root $Target
 }
 if ($LASTEXITCODE -ne 0) { throw 'Workspace initialization failed.' }
+
+# zvec（模糊匹配，可选依赖）：初始化阶段自动安装到脚本同级 vendor/；失败仅告警，不阻断工作区初始化。
+$vendorDir = Join-Path $PSScriptRoot 'vendor'
+if (Test-Path (Join-Path $vendorDir 'zvec/__init__.py')) {
+    Write-Host "zvec 已安装，跳过（$vendorDir）"
+} else {
+    Write-Host "==> 安装 zvec 到 $vendorDir（模糊匹配）"
+    if ($paperPython.Name -eq 'py') {
+        & $paperPython.Source -3 -m pip install --quiet --target $vendorDir zvec
+    } else {
+        & $paperPython.Source -m pip install --quiet --target $vendorDir zvec
+    }
+    if ($LASTEXITCODE -ne 0 -or -not (Test-Path (Join-Path $vendorDir 'zvec/__init__.py'))) {
+        Write-Warning 'zvec 安装失败，模糊匹配将降级为标准库 difflib（可稍后手动: python -m pip install --target vendor zvec）。'
+    } else {
+        Write-Host "==> zvec 安装完成（$vendorDir）"
+    }
+}
 
 if (-not $NoSkill) {
     if ($Agent) {
