@@ -16,18 +16,24 @@
 
 | 文件 | 变更观察时间（UTC） | SHA-256 |
 |---|---|---|
-| US-001-topic-clarification.md | 2026-09-15T05:59:23+00:00 | `da2bef3716fd` |
-| US-002-writing-plan.md | 2026-09-15T06:13:26+00:00 | `2d3ebce40c02` |
-| US-003-chapter-figures-tables.md | 2026-09-15T07:17:45+00:00 | `1453f60c31fa` |
-| US-004-formatting-guidelines.md | 2026-09-15T06:18:40+00:00 | `8d51a850dc20` |
-| US-005-change-writing-topic.md | 2026-09-15T07:17:45+00:00 | `2c9d20a902e0` |
-| US-006-output-version-format.md | 2026-09-15T07:17:45+00:00 | `dee237dce685` |
+| US-001-topic-clarification.md | 2026-11-07T07:59:58+00:00 | `da2bef3716fd` |
+| US-002-writing-plan.md | 2026-11-07T07:59:58+00:00 | `2d3ebce40c02` |
+| US-003-chapter-figures-tables.md | 2026-11-07T07:59:58+00:00 | `1453f60c31fa` |
+| US-004-formatting-guidelines.md | 2026-11-07T07:59:58+00:00 | `8d51a850dc20` |
+| US-005-change-writing-topic.md | 2026-11-07T07:59:58+00:00 | `2c9d20a902e0` |
+| US-006-output-version-format.md | 2026-11-07T07:59:58+00:00 | `dee237dce685` |
 
 ### 子目录
 
 
 
 ### 变更时间线
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-001-topic-clarification.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-002-writing-plan.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-003-chapter-figures-tables.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-004-formatting-guidelines.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-005-change-writing-topic.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-006-output-version-format.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
 - 2026-09-15T07:17:45+00:00 · 修改 `user-stories/US-003-chapter-figures-tables.md` · 登记 US-006 与 DEC-007/DEC-008：初始状态定义、图表编号来源、版本格式规范与分支命名
 - 2026-09-15T07:17:45+00:00 · 修改 `user-stories/US-005-change-writing-topic.md` · 登记 US-006 与 DEC-007/DEC-008：初始状态定义、图表编号来源、版本格式规范与分支命名
 - 2026-09-15T07:17:45+00:00 · 首次纳入索引 `user-stories/US-006-output-version-format.md` · 登记 US-006 与 DEC-007/DEC-008：初始状态定义、图表编号来源、版本格式规范与分支命名

@@ -13,33 +13,94 @@
 | test_paper.py | 自动化验证 | 新增 |
 | mock_backend.py | 离线子进程测试夹具，非真实 AI | 新增 |
 | VERIFICATION.md | 20项测试结果与未验证范围 | 新增 |
+| ontology/ | 工程本体 G2 模板资产（新版本 G2 模板级改造）：config 外置五表＋校验器/图生成器/init 脚本，新工程零代码跑通「登记主张→校验→生成图」 | 新增（DEC-019/ISS-006，2026-11-07） |
 
 <!-- project-index:start -->
 ### 文件快照
 
 | 文件 | 变更观察时间（UTC） | SHA-256 |
 |---|---|---|
-| .DS_Store | 2026-09-23T10:21:54+00:00 | `75106c268d9e` |
-| .gitignore | 2026-09-23T10:21:54+00:00 | `725b4eb78097` |
-| AGENTS.md | 2026-09-15T04:11:09+00:00 | `8c2f1b0f4063` |
-| DESIGN-DECISIONS.md | 2026-09-15T04:11:09+00:00 | `e077e82068a7` |
-| README.md | 2026-09-23T10:21:54+00:00 | `074a375cb715` |
-| VERIFICATION.md | 2026-09-15T04:11:09+00:00 | `13d468e5cf05` |
-| mock_backend.py | 2026-09-15T04:11:09+00:00 | `f58475021f21` |
-| paper.py | 2026-09-23T10:21:54+00:00 | `da1d29c2603e` |
-| setup.ps1 | 2026-09-23T10:21:54+00:00 | `b2d436d48ffc` |
-| setup.sh | 2026-09-23T10:41:28+00:00 | `69c6ee6962c6` |
-| test_paper.py | 2026-09-23T10:21:54+00:00 | `1ac552cb0cb3` |
+| .git | 2026-11-07T07:59:58+00:00 | `045fc6971259` |
+| .gitignore | 2026-11-07T07:59:58+00:00 | `725b4eb78097` |
+| AGENTS.md | 2026-11-07T07:59:58+00:00 | `8c2f1b0f4063` |
+| DESIGN-DECISIONS.md | 2026-11-07T07:59:58+00:00 | `e077e82068a7` |
+| README.md | 2026-11-07T07:59:58+00:00 | `074a375cb715` |
+| VERIFICATION.md | 2026-11-07T07:59:58+00:00 | `13d468e5cf05` |
+| mock_backend.py | 2026-11-07T07:59:58+00:00 | `f58475021f21` |
+| paper.py | 2026-11-07T07:59:58+00:00 | `da1d29c2603e` |
+| setup.ps1 | 2026-11-07T07:59:58+00:00 | `b2d436d48ffc` |
+| setup.sh | 2026-11-07T07:59:58+00:00 | `69c6ee6962c6` |
+| test_paper.py | 2026-11-07T07:59:58+00:00 | `1ac552cb0cb3` |
 
 ### 子目录
 
 - [decisions](decisions/index.md)
 - [issues](issues/index.md)
+- [ontology](ontology/index.md)
 - [scripts](scripts/index.md)
 - [skills](skills/index.md)
 - [user-stories](user-stories/index.md)
 
 ### 变更时间线
+- 2026-11-07T09:20:14+00:00 · 修改 `issues/ISS-006-ontology-template-g2.md` · ISS-006 收尾：对抗审核 R2 共识后置 resolved，补登 ISS-007 问题表行
+- 2026-11-07T09:10:17+00:00 · 修改 `issues/ISS-006-ontology-template-g2.md` · R1 审核修复：ISS-006 时间线更正与影响节表述、README known-diff 落盘说明与 governance 命名对照、登记 ISS-007
+- 2026-11-07T09:10:17+00:00 · 首次纳入索引 `issues/ISS-007-update-indexes-git-gitlink.md` · R1 审核修复：ISS-006 时间线更正与影响节表述、README known-diff 落盘说明与 governance 命名对照、登记 ISS-007
+- 2026-11-07T09:10:17+00:00 · 修改 `ontology/README.md` · R1 审核修复：ISS-006 时间线更正与影响节表述、README known-diff 落盘说明与 governance 命名对照、登记 ISS-007
+- 2026-11-07T08:34:25+00:00 · 修改 `ontology/validate_claims.py` · 修复验证轮 P1：loc_grammar 非法正则兜底（error 而非 traceback）与页数锚文案 ISS-017 对齐
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `.git` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `.gitignore` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `AGENTS.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `DESIGN-DECISIONS.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `README.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `VERIFICATION.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-001-project-records.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-002-topic-clarification.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-003-writing-plan.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-004-chapter-figures-tables.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-005-formatting-guidelines.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-006-change-writing-topic.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-007-change-topic-refinements.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-008-output-version-format.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-009-workspace-issues-directory.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-010-writing-plan-structure.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-011-references-entry-structure.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-012-no-auto-web-search.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-013-formatting-guidelines-registry.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-014-guidelines-injection-to-tasks.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-015-figure-table-index.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-016-reset-topic-command.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-017-output-version-naming.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-018-integrate-zvec.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-019-ontology-template-g2.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `issues/ISS-001-macos-bash.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `issues/ISS-002-path-normalization.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `issues/ISS-003-spec-handoff.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `issues/ISS-004-validation.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `issues/ISS-005-zvec-fuzzy-matching.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `issues/ISS-006-ontology-template-g2.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `mock_backend.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/README.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/config_loader.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/gen_graph.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/init_ontology.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/templates/AGENTS-ontology-纪律条款.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/templates/claims.yaml` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/templates/documents.yaml` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/templates/ontology.config.yaml` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/test_ontology.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `ontology/validate_claims.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `paper.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `scripts/update_indexes.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `setup.ps1` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `setup.sh` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `skills/paper-spec-socratic/SKILL.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `test_paper.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-001-topic-clarification.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-002-writing-plan.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-003-chapter-figures-tables.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-004-formatting-guidelines.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-005-change-writing-topic.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `user-stories/US-006-output-version-format.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
 - 2026-09-23T10:41:28+00:00 · 修改 `issues/ISS-001-macos-bash.md` · 修复 ISS-001 bash3.2 兼容并在真 bash 3.2.0 上完成验收
 - 2026-09-23T10:41:28+00:00 · 修改 `issues/ISS-005-zvec-fuzzy-matching.md` · 修复 ISS-001 bash3.2 兼容并在真 bash 3.2.0 上完成验收
 - 2026-09-23T10:41:28+00:00 · 修改 `setup.sh` · 修复 ISS-001 bash3.2 兼容并在真 bash 3.2.0 上完成验收

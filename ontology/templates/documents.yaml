@@ -1,0 +1,16 @@
+# 文档版本边登记（本体 G2 模板，DEC-019；格式以下游 documents.yaml 为模板）
+# 职责：①版本演化边（supersedes/derived_from）——版本关系从「文件名后缀隐式」变显式可查；
+#       ②pptx 页数锚 pages_expected——成品页数对照，结构漂移即 error（ISS-017 教训制度化）。
+# 属性：id（本库唯一）/ type（doc|deck|report）/ file（工程相对路径）/ derived_from / supersedes /
+#       pages_expected（仅 pptx 成品）/ notes
+# 校验：validate_claims.py check_documents()——指向存在性 error；页数不符 error。
+# 纪律：新文档版本产生（如 v3.2）时在此登记并链 supersedes；PPT 重导出后核对 pages_expected。
+
+documents:
+  # 示例（正式登记时删除本注释块）：
+  # - id: 报告v1
+  #   type: doc
+  #   file: output/报告-20260101-v1.md
+  #   derived_from: 无
+  #   supersedes: 无
+  #   notes: 初版说明

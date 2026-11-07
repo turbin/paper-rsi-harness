@@ -15,12 +15,13 @@ python3 scripts/update_indexes.py --reason "简述本轮变更"
 
 | 文件 | 变更观察时间（UTC） | SHA-256 |
 |---|---|---|
-| update_indexes.py | 2026-09-15T04:11:09+00:00 | `2dd8ade83f6f` |
+| update_indexes.py | 2026-11-07T07:59:58+00:00 | `2dd8ade83f6f` |
 
 ### 子目录
 
 
 
 ### 变更时间线
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `scripts/update_indexes.py` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
 - 2026-09-15T04:11:09+00:00 · 首次纳入索引 `scripts/update_indexes.py` · 依据 DEC-001 初始化源码工程管理，登记四项已有问题，建立首次文件基线
 <!-- project-index:end -->

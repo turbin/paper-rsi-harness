@@ -21,6 +21,7 @@
 | [DEC-015](DEC-015-figure-table-index.md) | 图表索引文件 figure-table-index.md 与编号规则来源（US-003） | confirmed | 本轮用户消息（用户故事差距分析） |
 | [DEC-016](DEC-016-reset-topic-command.md) | reset-topic 子命令与两阶段门禁（US-005） | confirmed | 本轮用户消息（用户故事差距分析） |
 | [DEC-017](DEC-017-output-version-naming.md) | 输出版本目录命名规则 vX.Y-release / vX.Y-RC（US-006） | confirmed | 本轮用户消息（用户故事差距分析） |
+| [DEC-019](DEC-019-ontology-template-g2.md) | ontology G2 模板资产：config 外置五表，新工程零代码跑通「登记主张→校验→生成图」 | confirmed | 本轮用户指令（2026-11-07） |
 
 前期 D01–D04 原话与决策保留在 [DESIGN-DECISIONS.md](../DESIGN-DECISIONS.md)，作为历史依据，未在本轮重新确认。
 
@@ -29,30 +30,50 @@
 
 | 文件 | 变更观察时间（UTC） | SHA-256 |
 |---|---|---|
-| DEC-001-project-records.md | 2026-09-15T04:11:09+00:00 | `fab701389d3f` |
-| DEC-002-topic-clarification.md | 2026-09-15T05:59:23+00:00 | `559b0d361f72` |
-| DEC-003-writing-plan.md | 2026-09-15T06:13:26+00:00 | `aa4cdf00e6ce` |
-| DEC-004-chapter-figures-tables.md | 2026-09-15T06:15:35+00:00 | `afd945f585c3` |
-| DEC-005-formatting-guidelines.md | 2026-09-15T06:18:40+00:00 | `fbae6a25dab8` |
-| DEC-006-change-writing-topic.md | 2026-09-15T06:57:23+00:00 | `1aa96513aadb` |
-| DEC-007-change-topic-refinements.md | 2026-09-15T07:17:45+00:00 | `d1045323386d` |
-| DEC-008-output-version-format.md | 2026-09-15T07:17:45+00:00 | `481862280f03` |
-| DEC-009-workspace-issues-directory.md | 2026-09-15T09:50:30+00:00 | `1efd35435c7b` |
-| DEC-010-writing-plan-structure.md | 2026-09-15T09:50:30+00:00 | `6c0947b32302` |
-| DEC-011-references-entry-structure.md | 2026-09-15T09:50:30+00:00 | `01404d480415` |
-| DEC-012-no-auto-web-search.md | 2026-09-15T09:50:30+00:00 | `766a3f7bde32` |
-| DEC-013-formatting-guidelines-registry.md | 2026-09-15T09:50:30+00:00 | `2f49f9ae90ff` |
-| DEC-014-guidelines-injection-to-tasks.md | 2026-09-15T09:50:30+00:00 | `4ccb44e5e945` |
-| DEC-015-figure-table-index.md | 2026-09-15T09:50:30+00:00 | `df6ba7fd725c` |
-| DEC-016-reset-topic-command.md | 2026-09-15T09:50:30+00:00 | `9c61885e672a` |
-| DEC-017-output-version-naming.md | 2026-09-15T09:50:30+00:00 | `6872f2f71e02` |
-| DEC-018-integrate-zvec.md | 2026-09-23T10:21:54+00:00 | `2bfaf5eeeb1e` |
+| DEC-001-project-records.md | 2026-11-07T07:59:58+00:00 | `fab701389d3f` |
+| DEC-002-topic-clarification.md | 2026-11-07T07:59:58+00:00 | `559b0d361f72` |
+| DEC-003-writing-plan.md | 2026-11-07T07:59:58+00:00 | `aa4cdf00e6ce` |
+| DEC-004-chapter-figures-tables.md | 2026-11-07T07:59:58+00:00 | `afd945f585c3` |
+| DEC-005-formatting-guidelines.md | 2026-11-07T07:59:58+00:00 | `fbae6a25dab8` |
+| DEC-006-change-writing-topic.md | 2026-11-07T07:59:58+00:00 | `1aa96513aadb` |
+| DEC-007-change-topic-refinements.md | 2026-11-07T07:59:58+00:00 | `d1045323386d` |
+| DEC-008-output-version-format.md | 2026-11-07T07:59:58+00:00 | `481862280f03` |
+| DEC-009-workspace-issues-directory.md | 2026-11-07T07:59:58+00:00 | `5b313c5b0f47` |
+| DEC-010-writing-plan-structure.md | 2026-11-07T07:59:58+00:00 | `e13816a1a732` |
+| DEC-011-references-entry-structure.md | 2026-11-07T07:59:58+00:00 | `b8f9d8baae45` |
+| DEC-012-no-auto-web-search.md | 2026-11-07T07:59:58+00:00 | `eed316ffc77f` |
+| DEC-013-formatting-guidelines-registry.md | 2026-11-07T07:59:58+00:00 | `27725feaf7d4` |
+| DEC-014-guidelines-injection-to-tasks.md | 2026-11-07T07:59:58+00:00 | `b21e65863276` |
+| DEC-015-figure-table-index.md | 2026-11-07T07:59:58+00:00 | `a74be16d175e` |
+| DEC-016-reset-topic-command.md | 2026-11-07T07:59:58+00:00 | `cf436be88f29` |
+| DEC-017-output-version-naming.md | 2026-11-07T07:59:58+00:00 | `75bb2e4ced18` |
+| DEC-018-integrate-zvec.md | 2026-11-07T07:59:58+00:00 | `2bfaf5eeeb1e` |
+| DEC-019-ontology-template-g2.md | 2026-11-07T07:59:58+00:00 | `435d9c2263a7` |
 
 ### 子目录
 
 
 
 ### 变更时间线
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-001-project-records.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-002-topic-clarification.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-003-writing-plan.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-004-chapter-figures-tables.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-005-formatting-guidelines.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-006-change-writing-topic.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-007-change-topic-refinements.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-008-output-version-format.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-009-workspace-issues-directory.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-010-writing-plan-structure.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-011-references-entry-structure.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-012-no-auto-web-search.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-013-formatting-guidelines-registry.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-014-guidelines-injection-to-tasks.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-015-figure-table-index.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-016-reset-topic-command.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-017-output-version-naming.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-018-integrate-zvec.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `decisions/DEC-019-ontology-template-g2.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
 - 2026-09-23T10:21:54+00:00 · 首次纳入索引 `decisions/DEC-018-integrate-zvec.md` · 集成 zvec 模糊匹配与初始化自动安装（ISS-005/DEC-018），修复 ISS-002 路径规范化与 setup.ps1 BOM
 - 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-009-workspace-issues-directory.md` · 用户确认 DEC-009~DEC-017 转为 confirmed
 - 2026-09-15T09:50:30+00:00 · 修改 `decisions/DEC-010-writing-plan-structure.md` · 用户确认 DEC-009~DEC-017 转为 confirmed

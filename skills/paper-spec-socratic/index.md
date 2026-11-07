@@ -5,13 +5,14 @@
 
 | 文件 | 变更观察时间（UTC） | SHA-256 |
 |---|---|---|
-| SKILL.md | 2026-09-15T09:39:40+00:00 | `f82d0000bfef` |
+| SKILL.md | 2026-11-07T07:59:58+00:00 | `f82d0000bfef` |
 
 ### 子目录
 
 
 
 ### 变更时间线
+- 2026-11-07T07:59:58+00:00 · 首次纳入索引 `skills/paper-spec-socratic/SKILL.md` · 登记 DEC-019/ISS-006，新增 ontology G2 模板资产（config 化校验器/图生成器/init 脚本）
 - 2026-09-15T09:39:40+00:00 · 修改 `skills/paper-spec-socratic/SKILL.md` · 修复 --guideline 文档示例并完成功能实现与两轮审阅收尾
 - 2026-09-15T09:24:59+00:00 · 修改 `skills/paper-spec-socratic/SKILL.md` · 修复 skill/README/DEC 文档与审查发现的一致性问题
 - 2026-09-15T09:03:54+00:00 · 修改 `skills/paper-spec-socratic/SKILL.md` · 按 DEC-009~DEC-017 更新 paper-spec-socratic skill 与 README

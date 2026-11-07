@@ -1,0 +1,39 @@
+# 工程口径主张库（本体建模 G2 模板，DEC-019；格式规范以在用 claims.yaml 为模板）
+# 纪律：
+#   - SHA 哈希只住在各目录 index.md 自动区块（设计稿 §7.3a 同源规则），本文件不记哈希
+#   - 语义摘要只住在各目录 index.md 手工摘要层，本文件不复制摘要文本
+#   - claim 引用文档/资料一律用 id 或 路径+locator
+#   - 谓词词典随用随加，但不允许同义谓词并存（同义扩散靠登记纪律防）
+#   - 证据寻址：工程内文件直接写相对路径；未归档来源（官网/口头口径等）必须用
+#     unarchived: 前缀显式标记并在 locator 注明核实日期；引用 references/ 台账件写真实
+#     路径并附 ref: REF-NNN；通配引用（如 REF-016*）已废除，写了报 error
+#   - used_in.doc 可指向 ISS/DEC 编号（校验器按 issues/decisions 文件存在性检查），
+#     或在 ontology.config.yaml 的 doc_aliases 节注册别名（未注册为 warning）
+#   - 枚举值在 ontology.config.yaml 的 enums 节定义，本文件头注不重复维护
+# 属性（九属性名领域无关，不改）：id / predicate / value / caliber / status / subject /
+#       verify_depth / evidence[{file, locator, ref?}] / used_in[{doc, loc}] /
+#       conflicts_with / tracked_by / supersedes / notes
+# 书写规范（校验器按此解析，违反即解析失败或漏抓）：
+#   - 顶层 claims: 根键；条目为恰好 2 空格缩进的「- id:」
+#   - 属性 4 空格缩进；evidence/used_in 子项 6 空格缩进（- 开头），ref 8 空格缩进
+#   - 禁行内注释（枚举报错不剥离注释）、禁多行值/块标量、禁缩进变体
+#   - 单行 flow 仅限 used_in 的 {doc: ..., loc: ...} 形态
+#   - 校验器对「解析到 0 条」报 error，防整库静默失效
+
+claims:
+  # 示例（正式登记时删除本注释块，按上规范逐条登记；引用数字前先跑 gen_graph.py 查图）：
+  # - id: CLM-001
+  #   predicate: 示例谓词
+  #   value: 示例值（值与单位绑定）
+  #   caliber: written
+  #   status: verified
+  #   subject: 主体名
+  #   verify_depth: passage_checked
+  #   evidence:
+  #     - file: materials/xxx/资料文件.pdf
+  #       locator: 章节定位符（页码/表号/单元格）
+  #   used_in:
+  #     - {doc: 报告别名或ISS/DEC编号, loc: 锚点片段}
+  #   conflicts_with: [CLM-xxx]
+  #   tracked_by: [ISS-xxx]
+  #   notes: 口径注记

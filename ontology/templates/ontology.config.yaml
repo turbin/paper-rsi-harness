@@ -1,0 +1,70 @@
+# ontology.config.yaml——本体注册表全节注释示例（G2 模板，DEC-019）
+# 本文件是模板：拷贝到新工程 ontology/ontology.config.yaml 后按需填写。
+# 全部节可选：缺省走保守默认，校验器以 warning 引导补登（设计稿 §12.4）。
+# 各节含义详见 ontology/README.md（L5 适配契约）。
+
+# ── C1 文档别名（doc_aliases）────────────────────────────────
+# used_in.doc 的别名 → 工程内路径（文件或目录）。ISS/DEC 编号无需注册。
+# 未注册别名的 used_in.doc 引用为 warning；注册后目标不存在为 error。
+doc_aliases: {}
+# doc_aliases:
+#   '建议书v3.1': 'output/项目建议书-20261102-v3.1.md'
+#   '汇报PPT-20261102': 'output/汇报PPT-20261102'
+
+# ── C2 loc 定位语法（loc_grammar）────────────────────────────
+# 别名 → 正则片段列表。loc 为「/」分隔的锚点片段序列，每片段须命中其一，
+# 未命中为 warning；片段尾部括号修饰语（如「（对照项）」）自动剥离后匹配。
+loc_grammar: {}
+# loc_grammar:
+#   '建议书v3.1':
+#     - '^附录C第\d+条(④)?$'
+#     - '^表\d+-\d+$'
+#   '汇报PPT-20261102':
+#     - '^P\d+(/P\d+)*$'
+
+# ── C3 摘要表范围（summary_tables）───────────────────────────
+# 目录 → 该目录 index.md（须含「## 文件摘要表」标题与 claim_ids 列）。
+# 登记 claim 证据落在这些目录下时，做 claim_ids 双写一致性双向核对。
+# 表不存在/无 claim_ids 列为 warning；claim_ids 指向不存在 claim 为 error。
+summary_tables: {}
+# summary_tables:
+#   'materials/company/需求资料-2026-10': 'materials/company/需求资料-2026-10/index.md'
+
+# ── C4 枚举（enums）─────────────────────────────────────────
+# 属性名（id/predicate/value/caliber/status/subject/verify_depth/evidence/used_in）
+# 领域无关不得改；枚举值按工程语义调整。缺本节时用下列保守默认并 warning。
+enums:
+  caliber: [written, self, disclosed, planned, visit, official]
+  status: [verified, self-reported, pending-cert, conflict, retired]
+  verify_depth: [transcribed, source_verified, passage_checked, value_recalculated]
+
+# ── C5 治理目录与编号 glob（governance，可选）─────────────────
+# tracked_by/used_in 的 ISS/DEC 编号按此目录与 glob 检查文件存在性。
+governance:
+  issues_dir: issues
+  decisions_dir: decisions
+  issue_glob: 'ISS-*'
+  dec_glob: 'DEC-*'
+
+# ── C6 索引自动区块标记（index_markers，可选）─────────────────
+# 校验器解析各目录 index.md 自动区块（registered_in 收录检查）所用的标记。
+index_markers:
+  start: '<!-- project-index:start -->'
+  end: '<!-- project-index:end -->'
+
+# ── C7 摘要表表头（summary_table_headers，可选）───────────────
+# 摘要表解析所用标题与列名；工程改用其他表头时在此改，不改代码。
+summary_table_headers:
+  table_title: 文件摘要表
+  file_col: 文件
+  claim_col: claim_ids
+  summary_col: 一句话摘要
+  sensitivity_col: 敏感度
+
+# ── C8 图主题分组（themes）──────────────────────────────────
+# [主题名, [谓词...]] 列表；gen_graph.py 按此分组生成 graph.md，
+# 未覆盖的谓词落「其他」组。空列表 = 全部落「其他」组。
+themes: []
+# themes:
+#   - ['资产与资质', ['罐容', '许可介质']]
+#   - ['人物角色（红线）', ['角色']]
